@@ -24,32 +24,32 @@ public class CartController {
 	private CartService cartService;
 	
 	@PostMapping("/addCartToUser/{idUser}")
-	Cart addCartToUser(@RequestBody Cart cart, @PathVariable long idUser) {
+	public Cart addCartToUser(@RequestBody Cart cart, @PathVariable long idUser) {
 		return cartService.addCartToUser(cart, idUser);
 	}
 	
 	@DeleteMapping("/deleteCart/{id}")
-	void deleteCart(@PathVariable long id) {
+	public void deleteCart(@PathVariable long id) {
 		cartService.deleteCart(id);
 	}
 	
 	@GetMapping("/findCartsForUser/{idUser}")
-	List<Cart> findCartsForUser(@PathVariable long idUser) {
+	public List<Cart> findCartsForUser(@PathVariable long idUser) {
 		return cartService.findCartsForUser(idUser);
 	}
 	
 	@GetMapping("/findCartById/{id}")
-	Cart findCartById(@PathVariable long id) {
+	public Cart findCartById(@PathVariable long id) {
 		return cartService.findCartById(id);
 	}
 	
-	@DeleteMapping("/removeFromCart/{idCart}/{idUser}")
+	public @DeleteMapping("/removeFromCart/{idCart}/{idUser}")
 	void removeFromCart(@PathVariable long idCart, @PathVariable long idUser) {
 		cartService.removeFromCart(idCart, idUser);
 	}
 	
 	@GetMapping("/findByCartName/{name}")
-	Cart findByCartName(@PathVariable String name) {
+	public Cart findByCartName(@PathVariable String name) {
 		return cartService.findByCartName(name);
 	}
 

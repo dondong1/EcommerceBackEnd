@@ -83,11 +83,9 @@ public class OrderController {
 			new ResourceNotFoundException("Product not found");
 			
 		}
-		
-		
 	}
 	
-	public  static class OrderForm {
+	public static class OrderForm {
 		private List<OrderProductDto> OrderProductDtos;
 
 		public List<OrderProductDto> getpOrderProductDtos() {
@@ -99,6 +97,4 @@ public class OrderController {
 		}
 		
 	}
-	
-
 }

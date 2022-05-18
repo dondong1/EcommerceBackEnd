@@ -18,7 +18,8 @@ public class AuthManager {
     @Autowired
     UserServiceImpl userServiceImpl;
     private static final Logger logger = LoggerFactory.getLogger(AuthManager.class);
-    public Authentication authenticate(UsernamePasswordAuthenticationToken authentication, LoginRequest loginRequest) throws AuthenticationException {
+    
+    public Authentication authenticate(UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         String username = authentication.getPrincipal() + "";
         String password = authentication.getCredentials() + "";
         User user;
