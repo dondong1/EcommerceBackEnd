@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.ecommerce.modal.User;
+import com.ecommerce.model.User;
 import com.ecommerce.service.UserService;
 
 @RestController

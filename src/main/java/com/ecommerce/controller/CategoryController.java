@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.ecommerce.modal.Category;
+
+import com.ecommerce.model.Category;
 import com.ecommerce.service.CategoryService;
 
 @RestController

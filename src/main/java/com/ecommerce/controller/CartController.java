@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.modal.Cart;
+import com.ecommerce.model.Cart;
 import com.ecommerce.service.CartService;
 
 @RestController

@@ -1,7 +1,8 @@
 package com.ecommerce.service;
 
 import java.util.List;
-import com.ecommerce.modal.Category;
+
+import com.ecommerce.model.Category;
 
 public interface CategoryService {
 	

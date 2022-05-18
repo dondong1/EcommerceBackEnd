@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.ecommerce.dao.TagDao;
-import com.ecommerce.modal.Product;
-import com.ecommerce.modal.Tag;
+import com.ecommerce.model.Product;
+import com.ecommerce.model.Tag;
 import com.ecommerce.service.TagService;
 
 @RestController

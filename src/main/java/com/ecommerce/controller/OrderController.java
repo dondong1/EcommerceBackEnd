@@ -14,11 +14,11 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ecommerce.dto.OrderProductDto;
-import com.ecommerce.exception.ResourceNotFoundException;
-import com.ecommerce.modal.Order;
-import com.ecommerce.modal.OrderProduct;
-import com.ecommerce.modal.OrderStatus;
+import com.ecommerce.common.dto.OrderProductDto;
+import com.ecommerce.common.exception.ResourceNotFoundException;
+import com.ecommerce.model.Order;
+import com.ecommerce.model.OrderProduct;
+import com.ecommerce.model.OrderStatus;
 import com.ecommerce.service.OrderProductService;
 import com.ecommerce.service.OrderService;
 import com.ecommerce.service.ProductService;
@@ -55,7 +55,7 @@ public class OrderController {
 		order = this.orderService.create(order);
 		
 		List<OrderProduct> orderProducts = new ArrayList<OrderProduct>();
-		for(OrderProductDto dto: formDtos) {
+		for (OrderProductDto dto: formDtos) {
 			orderProducts.add(orderProductService.create(new OrderProduct(order, productService.getProduct(
 					dto.getProduct().getId()), dto.getQuantity())));
 		}

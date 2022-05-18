@@ -7,7 +7,7 @@ import javassist.compiler.Parser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.ecommerce.dao.ProductDao;
-import com.ecommerce.modal.Product;
+import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
 
 @RestController

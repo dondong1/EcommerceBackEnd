@@ -1,6 +1,6 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.modal.Comment;
+import com.ecommerce.model.Comment;
 import com.ecommerce.service.CommentService;
 
 import java.util.List;

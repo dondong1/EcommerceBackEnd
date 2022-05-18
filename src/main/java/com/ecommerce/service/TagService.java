@@ -2,8 +2,8 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.modal.Product;
-import com.ecommerce.modal.Tag;
+import com.ecommerce.model.Product;
+import com.ecommerce.model.Tag;
 
 public interface TagService {
 	

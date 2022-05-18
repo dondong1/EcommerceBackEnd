@@ -16,22 +16,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.ecommerce.JWTConfiguration.AuthManager;
-import com.ecommerce.JWTConfiguration.JwtTokenProvider;
-import com.ecommerce.JWTConfiguration.UserPrincipal;
-import com.ecommerce.controller.RequestPojo.ApiResponse;
-import com.ecommerce.controller.RequestPojo.LoginRequest;
-import com.ecommerce.impl.UserServiceImpl;
-import com.ecommerce.modal.User;
-import com.ecommerce.service.UserService;
+import com.ecommerce.common.RequestPojo.ApiResponse;
+import com.ecommerce.common.RequestPojo.LoginRequest;
+import com.ecommerce.configuration.AuthManager;
+import com.ecommerce.jwt.JwtTokenProvider;
+import com.ecommerce.jwt.UserPrincipal;
+import com.ecommerce.model.User;
+import com.ecommerce.service.impl.UserServiceImpl;
 
 @RestController
 @RequestMapping("api")
 public class LoginController {
-	
-	@Autowired	
-	UserDetailsService userDetailservice;
 	
     @Autowired
     UserServiceImpl userserviceImpl;
@@ -48,6 +43,7 @@ public class LoginController {
     public ResponseEntity<?> serverStatus() {
         return new ResponseEntity<>(new ApiResponse("Server is running.", ""), HttpStatus.OK);
     }
+    
     @RequestMapping("login/user")//post and get
     public ResponseEntity<?> userLogin(@RequestBody LoginRequest loginRequest) {
 
@@ -57,16 +53,15 @@ public class LoginController {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = tokenProvider.generateToken(authentication);
             JSONObject obj =  this.getUserResponse(token);
-            if(obj == null) {
+            if (obj == null) {
                 throw new Exception("Error while generating Response");
             }
 
             return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
-        } catch(Exception e ) {
+        } catch (Exception e) {
             logger.info("Error in authenticateUser ",e);
             return ResponseEntity.badRequest().body(new ApiResponse(e.getMessage(), ""));
         }
-
     }
     
     private JSONObject getUserResponse(String token) {
@@ -77,8 +72,6 @@ public class LoginController {
             response.put("user_id", ""+_getUserId());
             response.put("email", user.getEmail());
             response.put("name", user.getUsername());
-      
-
 
             JSONObject obj = new JSONObject();
 

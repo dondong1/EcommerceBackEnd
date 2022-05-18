@@ -2,7 +2,7 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.modal.User;
+import com.ecommerce.model.User;
 
 public interface UserService {
 	
