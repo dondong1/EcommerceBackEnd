@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.ecommerce.jwt.JwtAuthenticationEntryPoint;
 import com.ecommerce.jwt.JwtAuthenticationFilter;
-import com.ecommerce.service.CustomUserDetailsService;
+import com.ecommerce.service._AuthService;
 
 @Configuration
 @EnableWebSecurity
@@ -29,7 +29,7 @@ import com.ecommerce.service.CustomUserDetailsService;
 )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    CustomUserDetailsService customUserDetailsService;
+    _AuthService customUserDetailsService;
     //	 	@Autowired
 //		BCryptPasswordEncoder eEncrypt;
     @Autowired
@@ -81,7 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js")
                 .permitAll()
-                .antMatchers("/api/status/**","/api/login/**","/api/signup/**")
+                .antMatchers("/api/status/**", "/api/login/**", "/api/signup/**")
                 .permitAll()
 //	                    .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
 //	                        .permitAll().antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")

@@ -20,22 +20,27 @@ public class CommentController {
 	Comment addCommentToProduct(@RequestBody Comment comment, @PathVariable long idProduct) {
 		return commentService.addCommentToProduct(comment, idProduct);
 	}
+	
 	@PutMapping("/editComment/{id}")
 	Comment editComment(@RequestBody Comment comment, @PathVariable long id) {
 		return commentService.editComment(comment, id);
 	}
+	
 	@GetMapping("/findCommentById/{id}")
 	Comment findCommentById(@PathVariable long id) {
 		return commentService.findCommentById(id);
 	}
+	
 	@DeleteMapping("/deleteComment/{id}")
 	void deleteComment(@PathVariable long id) {
 		commentService.deleteComment(id);
 	}
+	
 	@GetMapping("/findCommentsForProduct/{idProduct}")
 	List<Comment> findCommentsForProduct(@PathVariable long idProduct) {
 		return commentService.findCommentsForProduct(idProduct);
 	}
+	
 	@GetMapping("/findAllComments")
 	List<Comment> findAllComments() {
 		return commentService.findAllComments();

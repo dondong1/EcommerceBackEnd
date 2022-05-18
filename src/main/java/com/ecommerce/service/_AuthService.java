@@ -1,6 +1,7 @@
 package com.ecommerce.service;
 
 import com.ecommerce.jwt.UserPrincipal;
+
 import com.ecommerce.model.User;
 import com.ecommerce.service.impl.UserServiceImpl;
 
@@ -13,11 +14,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class _AuthService implements UserDetailsService {
+	
     @Autowired
     UserServiceImpl UserServiceImpl;
-    private static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
+    
+    private static final Logger logger = LoggerFactory.getLogger(_AuthService.class);
+    
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username)
@@ -25,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         try {
             User user = UserServiceImpl.findByUsername(username);
             return UserPrincipal.create(user);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new UsernameNotFoundException("User not found with Username : " + username);
         }
     }
@@ -36,7 +41,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         try {
             User user = UserServiceImpl.findUserById(id);
             return UserPrincipal.create(user);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new UsernameNotFoundException("User not found with id : " + id);
         }
         //return UserPrincipal.create(user);
